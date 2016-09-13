@@ -76,7 +76,7 @@ Go to the following link in your browser:
 
 def _CreateArgumentParser():
     try:
-        # Edge case when call is from embedded Python and sys.argv is not defined.
+        # Edge case when call from embedded Python (sys.argv not defined).
         if hasattr(sys, 'argv'):
             import argparse
         else:
