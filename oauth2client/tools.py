@@ -76,7 +76,11 @@ Go to the following link in your browser:
 
 def _CreateArgumentParser():
     try:
-        import argparse
+        # Edge case when call is from embedded Python and sys.argv is not defined.
+        if hasattr(sys, 'argv'):
+            import argparse
+        else:
+            return None
     except ImportError:  # pragma: NO COVER
         return None
     parser = argparse.ArgumentParser(add_help=False)
